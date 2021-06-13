@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+*{
+    box-sizing: border-box;
+}
+
+
+canvas{
+   
+    border:2px solid #111;
+
+}
+
+.toolbox {
+    
+    
+    background-color: #e5e5e5;
+    font-size:0.8rem;
+    padding:1rem;
+ 
+    height:50px;
+    display:flex;
+    justify-content: left;
+    align-items: center;
+    width:605px;
+    border:2px solid #343a40;
+    background-color: #343a40;
+}
+.toolbox button{
+ background-color: #fff;
+ margin-right:0.5rem;
+ padding:0.4rem 1rem;
+ height:40px;
+ border:none;
+    outline:none;
+}
+input{
+    width:40px;
+    height:40px;
+    border:none;
+    outline:none;
+    
+}
