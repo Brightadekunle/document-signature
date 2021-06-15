@@ -22,6 +22,65 @@
     .note-editor.note-frame .note-editing-area {
     min-height: 350px;
 }
+.opacity{
+  opacity:0;
+  position: absolute;
+  top:0;
+  height:400px;
+  width: 100%;
+  cursor: pointer;
+}
+.opacity-div{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+}
+.pad{
+  height: 400px;
+  width:400px;
+  margin: auto;
+}
+.bigicon{
+  font-size: 60px;
+  background-color: transparent;
+ margin-bottom: 0.2em;
+ color:#007bff;
+}
+.file-upload{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  animation: imganim 1s infinite linear both;
+  margin-top: 4em;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+width:300px;
+
+}
+.file-upload a{
+  background-color: transparent;
+  border:1px solid #007bff;
+  color:#007bff;
+}
+
+@keyframes imganim {
+from {height: 50px;}
+to {height: 55px;} 
+}
+.success{
+  font-size: 20px;
+  color:#fff;
+  background-color: #007bff;
+  border-radius: 50%;
+  padding:1rem;
+  margin-bottom: 10px;
+}
+
+
   </style>
 </head>
 <body class="hold-transition sidebar-mini">
@@ -180,7 +239,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>HTML/TEXT Editor</h1>
+            <h1>Upload New File</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -215,23 +274,27 @@
             </div>
             <!-- /.card-header -->
             <div class="card-body pad">
-              <div class="mb-3">
-                <input
-                class="form-control form-control-navbar"
-                type="file"
-                placeholder="Search"
-                aria-label="Search"
-              />
+              <div class="mb-3 opacity-div">
+                <i class="fas fa-file bigicon"></i>
+                <p class='text-center'>Drag 'n' drop a file here,
+                  <br>or <strong> <span style="color:#007bff;" >Browse files</span></strong></p>
+
+                  <input
+                  class="form-control form-control-navbar opacity"
+                  type="file"
+                  id="input"
+                  placeholder="Search"
+                  aria-label="Search"
+                />
+                <div class="file-upload" id="file-upload-filename">
+                 
+                </div>
               </div>
              
 
-              <div class="mb-3">
-
-                <textarea class="textarea" placeholder="Place some text here"
-                          style="width: 100%; height: 400px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
-              </div>
-              
+             
             </div>
+           
           </div>
         </div>
         <!-- /.col-->
@@ -260,6 +323,16 @@
     // Summernote
     $('.textarea').summernote()
   })
+
+  const inputEl=document.getElementById('input');
+ const infoArea = document.getElementById( 'file-upload-filename' );
+ 
+  inputEl.addEventListener("change", function(event) {
+    const input = event.srcElement;
+    const fileName = input.files[0].name;
+    infoArea.innerHTML = `<i class="fa fa-check success"></i>   ${fileName} <a href ="#" class ="btn b-0 rounded-0 mt-2">Continue</a>`;
+});
+
 </script>
 </body>
 </html>

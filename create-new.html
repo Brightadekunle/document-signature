@@ -178,12 +178,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Text Editors</h1>
+            <h1>Form Builder</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Text Editors</li>
+              <li class="breadcrumb-item active">Create Form</li>
             </ol>
           </div>
         </div>
@@ -214,8 +214,7 @@
             <!-- /.card-header -->
             <div class="card-body pad">
               <div class="mb-3">
-                <textarea class="textarea" placeholder="Place some text here"
-                          style="width: 100%; height: 400px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+                <div class="build-wrap"></div>
               </div>
               
             </div>
@@ -245,11 +244,19 @@
 <script src="Assets/js/demo.js"></script>
 <!-- Summernote -->
 <script src="plugins/summernote/summernote-bs4.min.js"></script>
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+<!-- Form Builder JS -->
+<script src="Assets/js/vendor.min.js?v=3.3.0"></script>
+<script src="Assets/js/form-builder.min.js"></script>
+<script src="Assets/js/form-render.min.js"></script>
 <script>
-  $(function () {
-    // Summernote
-    $('.textarea').summernote()
-  })
-</script>
+  jQuery(($) => {
+    $(".build-wrap").formBuilder();
+  });
+  </script>
+
 </body>
 </html>
